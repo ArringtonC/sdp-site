@@ -1,22 +1,279 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>D×M — support</title>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>D×M — Goals &amp; Money</title>
+<meta name="description" content="You know what you want. The question is what fits. D×M holds a trip, a kitchen or a year with no debt against your real numbers, once a month, and tells you what this month can carry.">
+<meta name="theme-color" content="#14140F">
+<link rel="canonical" href="https://arringtonc.github.io/sdp-site/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="D×M — Goals &amp; Money">
+<meta property="og:description" content="You know what you want. The question is what fits.">
+<meta property="og:image" content="https://arringtonc.github.io/sdp-site/02-today.png">
+<meta property="og:url" content="https://arringtonc.github.io/sdp-site/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
 <style>
-body{margin:0;background:#F1EFE9;color:#14130E;font-family:'Charter','Iowan Old Style',Palatino,Georgia,serif;line-height:1.6}
-.wrap{max-width:640px;margin:0 auto;padding:64px 24px 96px}
-h1{font-size:34px;font-weight:500;letter-spacing:-.02em;margin:0 0 6px}
-.k{font-family:'SF Mono',ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6F6A5E}
-p{margin:14px 0;font-size:17px}h2{font-size:20px;font-weight:500;margin:36px 0 6px}
-a{color:#8A5E12}.q{color:#565149;font-size:15px}
-</style></head><body><div class="wrap">
-<div class="k">D×M · support</div>
-<h1>D×M: Goals &amp; Money</h1>
-<p>D×M keeps up with your money month by month, and shows you what fits — against the things you actually want.</p>
-<h2>Need help?</h2>
-<p>Email <a href="mailto:arrington.copeland@gmail.com">arrington.copeland@gmail.com</a>. A real person answers, usually within a day.</p>
-<h2>How the trial and subscription work</h2>
-<p>D×M is free to download. Your first 14 days are free — no card, nothing to cancel. After that, D×M is $7.99 a month through your Apple ID. If you stop, everything you put in stays yours: you can still open it, read it, and export it.</p>
-<h2>Your data</h2>
-<p>Your numbers live on your Mac and in your own iCloud. D×M has no accounts, no servers of its own, and no analytics. Read the <a href="privacy.html">privacy policy</a>.</p>
-<p class="q">Made by Arrington Copeland.</p>
-</div></body></html>
+  :root{
+    --ground:#14140F; --raised:#1C1C16; --sunk:#0E0E0A;
+    --ink:#F2ECDD; --dim:#9C968B; --faint:#6B665C;
+    --rule:rgba(242,236,221,.12); --rule-firm:rgba(242,236,221,.24);
+    --gold:#EEC471; --gold-ink:#221F1A;
+    --display:'Fraunces',Georgia,'Times New Roman',serif;
+    --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  :root[data-theme="light"]{
+    --ground:#F8F5ED; --raised:#FFFFFF; --sunk:#EFEBE1;
+    --ink:#1A1914; --dim:#5C574E; --faint:#8A8477;
+    --rule:rgba(26,25,20,.13); --rule-firm:rgba(26,25,20,.26);
+    --gold:#8F6412; --gold-ink:#FFFDF6;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--ground);color:var(--ink);
+       font-family:var(--sans);font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased}
+  .w{max-width:1120px;margin:0 auto;padding:0 28px}
+  a{color:inherit}
+  ::selection{background:var(--gold);color:var(--gold-ink)}
+
+  /* nav */
+  nav{border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:20;
+      background:color-mix(in srgb,var(--ground) 92%,transparent);backdrop-filter:blur(12px)}
+  nav .w{display:flex;align-items:center;gap:26px;height:62px}
+  .mark{font-family:var(--display);font-size:22px;letter-spacing:.01em;text-decoration:none;font-weight:400}
+  .mark i{color:var(--gold);font-style:normal}
+  nav .links{display:flex;gap:22px;margin-left:auto;font-size:14.5px}
+  nav .links a{color:var(--dim);text-decoration:none}
+  nav .links a:hover,nav .links a:focus-visible{color:var(--ink)}
+  @media(max-width:700px){nav .links{display:none}}
+  .cta{background:var(--gold);color:var(--gold-ink);text-decoration:none;
+       font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;white-space:nowrap}
+  nav .cta{margin-left:auto}
+  @media(min-width:701px){nav .cta{margin-left:0}}
+  a:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+  /* hero */
+  header.hero{padding:76px 0 8px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  @media(max-width:880px){.hero-grid{grid-template-columns:1fr;gap:40px}}
+  h1{font-family:var(--display);font-weight:300;font-size:clamp(42px,6.4vw,70px);
+     line-height:1.02;letter-spacing:-.025em;margin:0 0 20px;text-wrap:balance}
+  h1 em{font-style:italic;color:var(--gold);font-weight:400}
+  .lede{font-size:19px;color:var(--dim);margin:0 0 30px;max-width:46ch}
+  .hero .buttons{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .ghost{border:1px solid var(--rule-firm);color:var(--ink);text-decoration:none;
+         font-weight:500;font-size:14px;padding:9px 17px;border-radius:999px}
+  .facts{display:flex;gap:30px;margin-top:34px;padding-top:26px;border-top:1px solid var(--rule)}
+  .fact .n{font-family:var(--display);font-size:26px;line-height:1.1}
+  .fact .l{font-size:13px;color:var(--faint);margin-top:3px}
+  .shot{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--rule)}
+
+  /* sections */
+  section{padding:74px 0;border-top:1px solid var(--rule)}
+  .eyebrow{font-size:11.5px;letter-spacing:.17em;text-transform:uppercase;
+           color:var(--faint);font-weight:600;margin:0 0 14px}
+  h2{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.6vw,40px);
+     line-height:1.12;letter-spacing:-.018em;margin:0 0 16px;text-wrap:balance}
+  .sub{color:var(--dim);max-width:60ch;margin:0 0 40px;font-size:17px}
+
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  @media(max-width:800px){.three{grid-template-columns:1fr;gap:28px}}
+  .pillar h3{font-family:var(--display);font-weight:400;font-size:21px;margin:0 0 8px}
+  .pillar p{margin:0;color:var(--dim);font-size:15.5px}
+  .pillar .rule{width:26px;height:2px;background:var(--gold);margin-bottom:15px}
+
+  /* screens */
+  .screens{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  @media(max-width:800px){.screens{grid-template-columns:1fr;gap:34px}}
+  .screens figure{margin:0;display:flex;flex-direction:column;gap:13px}
+  .screens figcaption{color:var(--dim);font-size:14.5px}
+  .screens figcaption b{color:var(--ink);font-weight:600;display:block;font-size:15.5px;
+                        font-family:var(--display);font-weight:400}
+
+  /* steps — numbered because it IS a sequence */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;counter-reset:s}
+  @media(max-width:800px){.steps{grid-template-columns:1fr;gap:26px}}
+  .step{counter-increment:s;padding-left:0}
+  .step .num{font-family:var(--display);font-size:13px;color:var(--gold);
+             letter-spacing:.12em;margin-bottom:10px}
+  .step .num::before{content:counter(s,decimal-leading-zero)}
+  .step h3{font-family:var(--display);font-weight:400;font-size:20px;margin:0 0 7px}
+  .step p{margin:0;color:var(--dim);font-size:15.5px}
+
+  /* never */
+  .never{display:flex;flex-direction:column;gap:0}
+  .never div{display:grid;grid-template-columns:minmax(0,26ch) 1fr;gap:26px;
+             padding:21px 0;border-top:1px solid var(--rule);align-items:baseline}
+  .never div:last-child{border-bottom:1px solid var(--rule)}
+  @media(max-width:700px){.never div{grid-template-columns:1fr;gap:6px}}
+  .never b{font-family:var(--display);font-weight:400;font-size:19px}
+  .never p{margin:0;color:var(--dim);font-size:15.5px}
+
+  /* price */
+  .price{background:var(--raised);border:1px solid var(--rule);border-radius:16px;
+         padding:40px;display:grid;grid-template-columns:1fr auto;gap:34px;align-items:center}
+  @media(max-width:760px){.price{grid-template-columns:1fr;padding:30px}}
+  .price .big{font-family:var(--display);font-weight:300;font-size:40px;line-height:1.1;margin:0 0 10px}
+  .price p{margin:0;color:var(--dim);max-width:52ch}
+  .price .tiers{display:flex;flex-direction:column;gap:9px;text-align:right}
+  @media(max-width:760px){.price .tiers{text-align:left}}
+  .price .t{font-size:15px}
+  .price .t b{font-family:var(--display);font-weight:400;font-size:21px}
+  .price .t span{color:var(--faint)}
+
+  /* faq */
+  details{border-top:1px solid var(--rule);padding:19px 0}
+  details:last-of-type{border-bottom:1px solid var(--rule)}
+  summary{cursor:pointer;font-family:var(--display);font-size:19px;font-weight:400;
+          list-style:none;display:flex;justify-content:space-between;gap:18px;align-items:baseline}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--gold);font-family:var(--sans);font-size:19px;flex:0 0 auto}
+  details[open] summary::after{content:"\2013"}
+  details p{margin:13px 0 0;color:var(--dim);max-width:66ch;font-size:15.5px}
+
+  footer{border-top:1px solid var(--rule);padding:44px 0 60px;color:var(--faint);font-size:14px}
+  footer .row{display:flex;flex-wrap:wrap;gap:22px;align-items:baseline}
+  footer a{color:var(--dim);text-decoration:none}
+  footer a:hover{color:var(--ink)}
+  footer .who{margin-top:22px;max-width:62ch;line-height:1.7}
+</style>
+</head>
+<body>
+<nav><div class="w">
+  <a class="mark" href="#top">D<i>×</i>M</a>
+  <div class="links">
+    <a href="#how">How it works</a>
+    <a href="#inside">What's inside</a>
+    <a href="#never">What it never does</a>
+    <a href="#price">Price</a>
+  </div>
+  <a class="cta" href="#price">Get D×M</a>
+</div></nav>
+
+<header class="hero" id="top"><div class="w hero-grid">
+  <div>
+    <h1>You know what you want. The question is what <em>fits</em>.</h1>
+    <p class="lede">A trip. A kitchen. A year with no debt. D×M holds those against your real numbers, once a month, and tells you in plain words what this month can actually carry.</p>
+    <div class="buttons">
+      <a class="cta" href="#price">Get D×M</a>
+      <a class="ghost" href="#how">See how it works</a>
+    </div>
+    <div class="facts">
+      <div class="fact"><div class="n">Mac &amp; iPhone</div><div class="l">One membership, both</div></div>
+      <div class="fact"><div class="n">Two weeks</div><div class="l">Free, through the App Store</div></div>
+      <div class="fact"><div class="n">No server</div><div class="l">Your own iCloud, nowhere else</div></div>
+    </div>
+  </div>
+  <img class="shot" src="02-today.png" alt="D×M's Today screen: four photographic covers showing what you can reach, what you still owe, what's going out and what's coming in.">
+</div></header>
+
+<section id="inside"><div class="w">
+  <p class="eyebrow">What's inside</p>
+  <h2>A wall of what you want, and the numbers underneath it.</h2>
+  <p class="sub">Most money apps start with what you spent. D×M starts with what you're for — then does the arithmetic against it.</p>
+  <div class="three">
+    <div class="pillar"><div class="rule"></div>
+      <h3>Your Board</h3>
+      <p>The things you want, as photographs, in collections you name. Not a list of line items. A wall you'll actually look at.</p></div>
+    <div class="pillar"><div class="rule"></div>
+      <h3>What fits</h3>
+      <p>Which goal your money can carry now, which is next, and why — from your own figures, not a rule of thumb someone wrote for everybody.</p></div>
+    <div class="pillar"><div class="rule"></div>
+      <h3>Completed</h3>
+      <p>A wall of what you already did, with the pictures. The part most money apps never show you, and the part worth keeping.</p></div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="eyebrow">On your phone and your Mac</p>
+  <h2>Four covers, one sentence, once a month.</h2>
+  <p class="sub">Check in when you like. D×M reads what changed and says it plainly — never a score, never a colour telling you how to feel.</p>
+  <div class="screens">
+    <figure><img class="shot" src="01-board.png" alt="The Board: wants as photographs in collections, each with a price.">
+      <figcaption><b>Put it on a wall</b>Give a want a picture and a price. Or don't — an unpriced want is still a want.</figcaption></figure>
+    <figure><img class="shot" src="05-report.png" alt="Your report: where you are, what changed since last month, and where you're going.">
+      <figcaption><b>See what changed</b>Cash, debt and net worth against last month. Your months, kept — never rewritten.</figcaption></figure>
+    <figure><img class="shot" src="06-leo.png" alt="Leo, the guide, answering a question about your money.">
+      <figcaption><b>Ask Leo</b>A question about your money, answered from what D×M already knows about it.</figcaption></figure>
+  </div>
+</div></section>
+
+<section id="how"><div class="w">
+  <p class="eyebrow">How it works</p>
+  <h2>Three things, and then once a month.</h2>
+  <div class="steps">
+    <div class="step"><div class="num"></div>
+      <h3>Put what you want on a wall</h3>
+      <p>A trip, a kitchen, a car, a year with no debt. Give each one a photograph, so it stays a real thing rather than a number.</p></div>
+    <div class="step"><div class="num"></div>
+      <h3>Give it your real numbers</h3>
+      <p>What you have, what you owe, what you pay each month. You type them; D×M never reaches into a bank on your behalf.</p></div>
+    <div class="step"><div class="num"></div>
+      <h3>Check in, once a month</h3>
+      <p>Five minutes. D×M tells you what fits now, what's next, and what moved since last month — in sentences, not a dashboard.</p></div>
+  </div>
+</div></section>
+
+<section id="never"><div class="w">
+  <p class="eyebrow">What D×M never does</p>
+  <h2>Some of this is the whole point.</h2>
+  <div class="never">
+    <div><b>Never colours money</b><p>No green, no red. A debt is not an emergency and a balance is not a verdict — it's a fact you're allowed to read calmly.</p></div>
+    <div><b>Never shows a false zero</b><p>If D×M doesn't know a figure, it says so. Unknown and nothing are different facts, and treating them the same is how money apps lie politely.</p></div>
+    <div><b>Never scores you</b><p>No streaks, no levels, no badges, no confetti. Your own money is not a game you can be losing.</p></div>
+    <div><b>Never takes your numbers</b><p>They live in your own iCloud and nowhere else. There is no D×M server holding them, no account to make, and nobody here who can read them.</p></div>
+    <div><b>Never connects to your bank</b><p>You type what you have. It takes a few minutes a month, and it means no credentials, no read-only token, and nothing to breach.</p></div>
+  </div>
+</div></section>
+
+<section id="price"><div class="w">
+  <div class="price">
+    <div>
+      <p class="big">Two weeks free, then $7.99 a month.</p>
+      <p>Through the App Store, so you cancel the way you cancel anything else. One membership covers your Mac, your iPhone and your family. If you stop, everything stays yours — you can still open it, read it and export it.</p>
+      <div class="buttons" style="margin-top:22px"><a class="cta" href="https://apps.apple.com/app/id6756886736">Get D×M on the App Store</a></div>
+    </div>
+    <div class="tiers">
+      <div class="t"><b>$7.99</b> <span>a month</span></div>
+      <div class="t"><b>$59.99</b> <span>a year — two months free</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="w">
+  <p class="eyebrow">Questions</p>
+  <h2>The ones worth asking first.</h2>
+
+  <details open><summary>Does it connect to my bank?</summary>
+    <p>No, and that's deliberate. You type your balances once a month. It takes a few minutes, it means there are no credentials to steal, and typing a number is a moment where you actually look at it — which is most of the value.</p></details>
+
+  <details><summary>Where does my data live?</summary>
+    <p>In your own iCloud, on the devices you sign in on. There is no D×M server holding your money and no account to create. Nobody here can read any of it — not because we promise not to, but because it never arrives.</p></details>
+
+  <details><summary>Do I need a card for the free two weeks?</summary>
+    <p>Yes. The free period is Apple's introductory offer, so it runs through your Apple ID with a payment method attached, and nothing is charged for two weeks. You cancel in your Apple settings like any other subscription.</p></details>
+
+  <details><summary>What happens if I stop paying?</summary>
+    <p>D×M goes read-only. Every figure, every month and every picture stays exactly where it is — you can open it, read it and export the whole record. It simply stops accepting new work. Locking someone out of their own financial history is taking it hostage, and we don't.</p></details>
+
+  <details><summary>Is one membership enough for both my devices?</summary>
+    <p>Yes. It belongs to your Apple ID, so buying on the Mac opens the iPhone and the other way round. Family Sharing is on, so your household is covered too.</p></details>
+
+  <details><summary>Is this a budgeting app?</summary>
+    <p>No. There are no envelopes, no spending categories and no monthly allowance to blow. D×M answers a different question — not "what did I spend", but "can this month carry the thing I actually want".</p></details>
+</div></section>
+
+<footer><div class="w">
+  <div class="row">
+    <span>© 2026 Arrington Copeland</span>
+    <a href="privacy.html">Privacy</a>
+    <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms</a>
+    <a href="mailto:arrington.copeland@gmail.com">Support</a>
+  </div>
+  <p class="who">D×M — Desire × Means. Made by one person, for people who know what they want and would like to find out whether this month can carry any of it. Questions go straight to my inbox; I answer them myself.</p>
+</div></footer>
+
+</body>
+</html>
